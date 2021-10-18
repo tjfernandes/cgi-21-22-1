@@ -30,9 +30,14 @@ function animate(time)
     const color = gl.getUniformLocation(program, "color");
 
     gl.uniform4f(color, 1.0, 1.0, 1.0, 1.0);
+
+    const point_size = gl.getUniformLocation(program, "point_size");
+
+    gl.uniform1f(point_size, 4.0);
     gl.drawArrays(gl.POINTS, 0, points.length);
 
     gl.uniform4f(color, 0.0, 1.0, 0.0, 1.0);
+    gl.uniform1f(point_size, 10.0);
     gl.drawArrays(gl.POINTS, points.length, clicks.length);
 
 }
